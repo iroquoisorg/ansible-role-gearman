@@ -1,0 +1,16 @@
+---
+- name: Install Gearman
+  apt:
+    pkg: gearman-job-server
+    state: latest
+
+- name: Install Gearman Tools
+  apt:
+    pkg: gearman-tools
+    state: latest
+
+- name: Ensure Gearman is running and enabled on boot
+  service:
+    name: gearman-job-server
+    state: started
+    enabled: yes
